@@ -8,6 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -60,7 +62,7 @@
           <p class="lead"></p>
         </h1>
       </div>
-      <!-- <div class="col-md-5"> -->
+      <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
             <div class="col-sm-12">
@@ -68,63 +70,63 @@
 			
             </div>
           </div>
-        <!-- </div> -->
+        </div>
       </div>
     </div> 
   </div><!-- /cont -->
   
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="top-spacer"> </div>
       </div>
     </div> 
-  </div><!-- /cont -->
+  </div> -->
+  <!-- /cont -->
   
 </div>
 
 
 <div class="container">
-  <div class="row">
+   <div class="row">
     
     <div class="col-md-12"> 
       
       <div class="panel">
-        <div class="panel-body">
+        <div class="panel-body"> 
           
           <!--/signup-->
-          <div class="row justify-content-md-center" style="margin-top: 30px">
-            <div class="col-md-6">
+         
         
-                <form name="form1" method="GET" action="" onsubmit="return!! (ValidateEmail(document.form1.text1))||(CheckPassword(document.form1.text2))||(matchPassword())">
-
-                    <div class="form-group">
-                        <label for="userNameInput">User Name</label>
-                        <input name="userName" type="text" class="form-control" id="userNameInput" placeholder="User Name" pattern=".{8,}" title="Eight or more characters" required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="email">Email Id</label>
-                      <input name="text1" type="text" class="form-control" id="email" placeholder="Email Id" required>
+                <form name="form1" method="GET" action="" class="signup" onsubmit="return!! (ValidateEmail(document.form1.text1))||(CheckPassword(document.form1.text2))||(matchPassword())">
+                  <h2>Create account</h2>
+                  <h3>Already have an account? <span>Sign in</span></h3>
+                  <div class="signup__field">
+                    <input class="signup__input" type="text" name="username" id="username" required />
+                    <label class="signup__label" for="username">Username</label>
                   </div>
-        
-                    <div class="form-group">
-                        <label for="passwordInput">Password</label>
-                        <input name="text2" type="password" class="form-control" id="passwordInput" placeholder="Password" title="Must contain one uppercase,one lower case,one special character and one number" required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="ConfirmpasswordInput">Confirm Password</label>
-                      <input name="text3" type="password" class="form-control" id="confirmpasswordInput" placeholder="Retype Password" required>
+                
+                  <div class="signup__field">
+                    <input class="signup__input" type="text" name="text1" id="email" required />
+                    <label class="signup__label" for="email">Email</label>
                   </div>
-      
-                    <button type="submit" class="btn btn-primary">Signup</button>
+                
+                  <div class="signup__field">
+                    <input class="signup__input" type="password" name="text2" id="passwordInput" required />
+                    <label class="signup__label" for="password">Password</label>
+                  </div>
+
+                  <div class="signup__field">
+                    <input class="signup__input" type="password" name="text3" id="confirmpasswordInput" required />
+                    <label class="signup__label" for="confirmpassword">Confirm Password</label>
+                  </div>
+                
+                  <button>Sign up</button>
                 </form>
-            </div>
-        </div>
+      
           <!--/signup-->
-          
-          
+        
+
           <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
         
           
