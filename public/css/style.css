@@ -43,7 +43,7 @@ h3 {
   margin-bottom: 40px;
 }
 
-h2 span {
+h3 span {
   text-decoration: underline;
   cursor: pointer;
   color: blue;
@@ -86,7 +86,7 @@ h2 span {
 
 /*  Label */
 .signup__label {
-  color: #bdbdbd;
+  color: black;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

@@ -1,6 +1,8 @@
 const express=require("express")
 
 const signupRouter=express.Router();
+const Userdata=require('../model/Userdata');
+
 
 function router(nav1,nav2){
 
@@ -12,8 +14,35 @@ function router(nav1,nav2){
            title:'Library' 
         })
     })
+    signupRouter.post('/add',function(req,res){
+
+        var item={ 
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            confirmpassword: req.body.confirmpassword
+         }
+
+         
+    
+        var user=Userdata(item);
+        user.save();//save to database
+        res.redirect('/signup');
+        });
+
+
+    
+
+
+
+
 
     return signupRouter;
 }
+
+
+
+    
+
 
 module.exports=router;

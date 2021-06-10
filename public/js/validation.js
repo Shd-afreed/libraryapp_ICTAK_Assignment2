@@ -24,7 +24,7 @@ return true;
 }
 else
 { 
-alert('Password is incorrect!!Try Again..')
+alert('The password must contain atleast one uppercase,one lower case,one digit and one special character')
 return false;
 }
 }

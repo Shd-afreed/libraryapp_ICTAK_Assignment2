@@ -1,33 +1,79 @@
+
 const express=require("express")
 
-const addAuthorsRouter=express.Router();
+const addauthorRouter=express.Router();
 
-function router(nav1,nav2){
+const Authordata=require('../model/Authordata');
 
-    addAuthorsRouter.get('/',function(req,res){
+const multer = require('multer');
+const ejs = require('ejs');
+const path = require('path');
+
+// Set The Storage Engine
+const storage = multer.diskStorage({
+  destination: './public/images/',
+  filename: function(req, file, cb){
+    cb(null,file.originalname);
+  }
+});
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+  limits:{fileSize: 1000000},
+  fileFilter: function(req, file, cb){
+    checkFileType(file, cb);
+  }
+}).single('image');
+
+// Check File Type
+function checkFileType(file, cb){
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if(mimetype && extname){
+    return cb(null,true);
+  } else {
+    cb('Error: Images Only!');
+  }
+}
+
+function router(nav1,nav3){
+
+    addauthorRouter.get('/',function(req,res){
    
         res.render("addAuthors",{
-            nav1,
-            nav2, 
+            nav3,nav1,
             title:'Library'
             
         })
     })
-    addAuthorsRouter.get('/add',function(req,res){
-        res.send("Author is added")
-    })
 
-    // authorsRouter.get('/add',function(req,res){
-    //  authors.push({
-    //     name:request.query.name,
-    //     works:request.query.works,
-    //     published:request.query.published,
-    //     img:request.query.img
-    //   });
-    //   res.redirect('/books')
+    addauthorRouter.post('/add',function(req,res){
+      
+        upload(req, res, (err) => {
+     var item={ 
+        authorname: req.body.authorname,
+        work: req.body.work,
+        published: req.body.published,
+        image: req.file.originalname
+     }
+
+    var author=Authordata(item);
+    author.save();//save to database
+    res.redirect('/authors');
     
-    // });
+    });
+});
 
-return addAuthorsRouter;
+
+
+
+return addauthorRouter;
 }
 module.exports=router;
+

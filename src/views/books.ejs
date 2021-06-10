@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="#" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -34,11 +34,10 @@
        <%}%>
       </ul>
       <ul class="nav navbar-right navbar-nav">
-                <%for(i=0;i<nav2.length;i++){%>
-          <li>
-            <a href="<%=nav2[i].link%>"><%=nav2[i].name%></a>
-          </li>
-         <%}%>
+        <%for(i=0;i<nav3.length;i++){%>
+          <li> <a href="<%=nav3[i].link%>"><%=nav3[i].name%></a></li>
+          <%}%>
+            
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
           <ul class="dropdown-menu" style="padding:12px;">
@@ -61,7 +60,7 @@
         </h1>
       </div>
       <div class="col-md-5">
-        <div class="well well-lg"> 
+        <!-- <div class="well well-lg">  -->
           <div class="row">
             <div class="col-sm-12">
               
@@ -99,18 +98,26 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/images/<%=books[i].img%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="/images/<%=books[i].image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=books[i].title%></h3>
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default"><%=books[i].author%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=books[i].genre%><a href="/books/<%=i%>" class="text-muted">Read More</a></small>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=books[i].genre%><a href="/books/<%=books[i]._id%>" class="text-muted">Read More</a></small>
                   </h4></div>
-                <div class="col-xs-3"></div>
+                  <div  class="col-xs-3">
+                    <table>
+                    <tr>
+                  <td>  <a href="/books/updatebook/<%=books[i]._id%>" class="btn btn-primary pull-right btnNext">update </a> </td>
+                 <td>  <a href="/books/delete/<%=books[i]._id%>" class="btn btn-primary pull-right btnNext"> delete</a></td>
+                  </tr>
+                </table>
+                  </div>
+                
               </div>
-              <br><br>
+    
             </div>
           </div>
           <%}%>
@@ -118,7 +125,7 @@
           <!--/stories-->
           
           
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+          <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
         
           
         </div>

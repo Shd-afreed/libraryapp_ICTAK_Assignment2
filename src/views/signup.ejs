@@ -29,11 +29,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav1.length;i++){%>
-          <li>
-            <a href="<%=nav1[i].link%>"><%=nav1[i].name%></a>
-          </li>
-          <%}%>
+       
       </ul>
       <ul class="nav navbar-right navbar-nav">
         <%for(i=0;i<nav2.length;i++){%>
@@ -63,10 +59,10 @@
         </h1>
       </div>
       <div class="col-md-5">
-        <div class="well well-lg"> 
+        <!-- <div class="well well-lg">  -->
           <div class="row">
             <div class="col-sm-12">
-              
+            
 			
             </div>
           </div>
@@ -75,13 +71,13 @@
     </div> 
   </div><!-- /cont -->
   
-  <!-- <div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="top-spacer"> </div>
+ 
       </div>
     </div> 
-  </div> -->
+  </div>
   <!-- /cont -->
   
 </div>
@@ -92,38 +88,39 @@
     
     <div class="col-md-12"> 
       
-      <div class="panel">
-        <div class="panel-body"> 
+      <!-- <div class="panel">
+        <div class="panel-body">  -->
           
           <!--/signup-->
-         
+          <div class="col-md-3"></div>
+          <div class="col-md-6"> 
         
-                <form name="form1" method="GET" action="" class="signup" onsubmit="return!! (ValidateEmail(document.form1.text1))||(CheckPassword(document.form1.text2))||(matchPassword())">
-                  <h2>Create account</h2>
-                  <h3>Already have an account? <span>Sign in</span></h3>
+                <form name="form1" method="POST" action="/signup/add" class="signup" onsubmit="return!! (ValidateEmail(document.form1.email))||(CheckPassword(document.form1.password))||(matchPassword())">
+                  <h2>Create an account</h2>
+                  <h3>Already have an account!!<a href="/login"><span>Sign in</span></a></h3>
                   <div class="signup__field">
                     <input class="signup__input" type="text" name="username" id="username" required />
                     <label class="signup__label" for="username">Username</label>
                   </div>
                 
                   <div class="signup__field">
-                    <input class="signup__input" type="text" name="text1" id="email" required />
+                    <input class="signup__input" type="text" name="email"  id="email" required />
                     <label class="signup__label" for="email">Email</label>
                   </div>
                 
                   <div class="signup__field">
-                    <input class="signup__input" type="password" name="text2" id="passwordInput" required />
+                    <input class="signup__input" type="password" name="password"  title="The password must contain atleast one uppercase,one lower case,one digit and one special character" id="passwordInput" required />
                     <label class="signup__label" for="password">Password</label>
                   </div>
 
                   <div class="signup__field">
-                    <input class="signup__input" type="password" name="text3" id="confirmpasswordInput" required />
+                    <input class="signup__input" type="password" name="confirmpassword" id="confirmpasswordInput" required />
                     <label class="signup__label" for="confirmpassword">Confirm Password</label>
                   </div>
                 
                   <button>Sign up</button>
                 </form>
-      
+          </div>
           <!--/signup-->
         
 

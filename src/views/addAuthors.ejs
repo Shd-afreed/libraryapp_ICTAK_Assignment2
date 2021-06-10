@@ -23,22 +23,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="#" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <%for(i=0;i<nav1.length;i++){%>
-        <li>
-          <a href="<%=nav1[i].link%>"><%=nav1[i].name%></a>
-        </li>
-       <%}%>
-      </ul>
-      <ul class="nav navbar-right navbar-nav">
-        <%for(i=0;i<nav2.length;i++){%>
           <li>
-            <a href="<%=nav2[i].link%>"><%=nav2[i].name%></a>
+            <a href="<%=nav1[i].link%>"><%=nav1[i].name%></a>
           </li>
          <%}%>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <%for(i=0;i<nav3.length;i++){%>
+      <li> <a href="<%=nav3[i].link%>"><%=nav3[i].name%></a></li>
+
+      <%}%>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
           <ul class="dropdown-menu" style="padding:12px;">
@@ -61,7 +60,7 @@
         </h1>
       </div>
       <div class="col-md-5">
-        <div class="well well-lg"> 
+        <!-- <div class="well well-lg">  -->
           <div class="row">
             <div class="col-sm-12">
               
@@ -99,30 +98,30 @@
           <div class="row justify-content-md-center" style="margin-top: 30px">
             <div class="col-md-4">
         
-                <form method="GET" action="/addAuthors/add" name="form1">
+                <form method="POST" action="/addAuthors/add" name="form1" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="authorName">Author Name</label>
-                        <input  type="text" class="form-control" id="authorName" required>
+                        <input  type="text" class="form-control"name="authorname" id="authorName" required>
                     </div>
         
                     <div class="form-group">
                         <label for="">Author Work</label>
-                        <input type="text" class="form-control" id="authorwork" required>
+                        <input type="text" class="form-control" name="work" id="authorwork" required>
                     </div>
 
                     <div class="form-group">
                       <label for="">Published Date</label>
-                      <input  type="text" class="form-control" id="published" pattern="[0-9]{4}" required>
+                      <input  type="text" class="form-control" name="published" id="published" pattern="[0-9]{4}" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Author Image</label>
+                      <input type="file" class="form-control" name="image" id="authorimage" required>
                   </div>
-
-                  <div class="form-group">
-                    <label for="">Author Image</label>
-                    <input type="file" class="form-control" id="authorimage" required>
-                </div>
-        
-                   <button type="submit" class="btn btn-primary">ADD</button>
-                </form>
-            </div>
+                    <button type="submit" class="btn btn-primary">ADD</button>
+                  </form>
+                    
+                  </div>
+     
         </div>
           <!--/stories-->
           

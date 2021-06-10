@@ -69,8 +69,11 @@ footer {
 a,a:hover {
   color:#223344;
   text-decoration:none;
-}
 
+}
+.error{
+  color: red;
+}
 .icon-bar {
   background-color:#fff;
 }
